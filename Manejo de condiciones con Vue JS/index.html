@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso VUE JS</title>
+</head>
+<body>
+
+    <div id="app">
+        <!-- 
+            CON V-SHOW SOLO SE AGREGA UN ATRIBUTO CSS DISPLAY NONE.
+            CON V-IF SE DESTRUYE O SE CREA EL ELEMENTO EN EL DOM.}
+            POR LO TANTO PARA EL NAVEGADOR ES MAS COMPLICADO UTILIZAR V-IF.
+            ENTONCES, LO MAS CORRECTO ES UTILIZAR V-IF CUANDO EL ELEMENTO SE VA A DESPLEGAR EN FUNCIÓN
+            DE LA DATA QUE SE UTILIZA AL CARGAR. Y SE UTILIZA V-SHOW SI EL ELEMENTO SE TIENE QUE MOSTRAR
+            O ESCONDER EN FUNCIÓN DE LA INTERACCIÓN DEL USUARIO, POR EJEMPLO UN BOTÓN, UN COMBO, ETC..
+            
+            EL ATRIBUTO V-SHOW NO SE PUEDE UTILIZAR CON EL ELEMENTO TEMPLATE DEBIDO A QUE ESTE ELEMENTO
+            NO ES UN ELEMENTO HTML VALIDO, POR LO QUE NO SE LE PUEDE AGREGAR UN ATRIBUTO CSS A UN ELEMENTO
+            QUE NO ES VALIDO.
+        -->
+        <!--template v-if="mostrar">
+            <h1>Este es mi titulo</h1>
+            <h2>Este es mi subtitulo</h2>
+            <a :href = "url" target="_blank">Ir a {{ pagina }}</a>
+        </template-->
+        <!--div v-show="mostrar">
+            <h1>Este es mi titulo</h1>
+            <h2>Este es mi subtitulo</h2>
+            <a :href = "url" target="_blank">Ir a {{ pagina }}</a>
+        </div>
+        <div v-show="!mostrar">
+            Esto está oculto
+        </div-->
+
+    <a :href="url" target="_blank">Ir a {{ pagina }}</a>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                url: 'https://google.com',
+                pagina: 'Google',
+                mostrar: true
+            }
+        })
+    </script>
+</body>
+</html>
