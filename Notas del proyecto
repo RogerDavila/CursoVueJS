@@ -1,0 +1,6 @@
+La libreria webpack-simple (un template de webpack mas vue que se utiliza para crear el proyecto)
+    npm install -g vue-cli
+    vue init webpack-simple platzimusic
+    cd platzimusic
+    npm install
+    npm run dev
