@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso VUE JS</title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" name="nombre" v-model="nombre" placeholder="Ingresa tu nombre">
+        <p>Tu nombre en mayúsculas es: {{ nombre | uppercase }}</p>
+
+        <!-- El v-on:submit.prevent o @submit.prevent sirve para prevenir el comportamiento
+        default al enviar un formulario y en cambio ejecutar una acción, ya sea en una función
+        o de manera inline-->
+        <form v-on:submit.prevent="submit" action="" method="get">
+            <h2>Cuales son tus cursos favoritos?</h2>
+            <input v-model="cursos" type="checkbox" id="vue" value="vue">
+            <label for="vue">Vue JS</label> 
+            <input v-model="cursos" type="checkbox" id="seo" value="seo">
+            <label for="seo">SEO</label> 
+            <input v-model="cursos" type="checkbox" id="react" value="react">
+            <label for="react">React y Redux</label> 
+            <input v-model="cursos" type="checkbox" id="growth" value="growth">
+            <label for="growth">Growth Marketing</label> 
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                nombre: '',
+                cursos: []
+            },
+            filters: {
+                uppercase: function (str) {
+                    return str.toUpperCase()
+                }
+            },
+            methods: {
+                submit: function (el) {
+                    console.log('Se ejecuta el metodo submit')
+                    console.log(this.cursos)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
